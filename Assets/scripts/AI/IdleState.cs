@@ -21,6 +21,8 @@ namespace AI
             
             var actionIndex = Random.Range(1, 7);
             animator.SetInteger("ActionIndex", actionIndex);
+            animator.SetInteger("ActionIndex", 0);
+            
             _playerController.CheckPlayerAction(actionIndex);
             Debug.Log("I do this" + (ActionContainer.ActionIndex)actionIndex);
         }

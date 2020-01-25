@@ -40,7 +40,8 @@ public class HitSystemController : MonoBehaviour
 
     private void HitCheck(PlayerController attacker, PlayerController defender, ActionContainer action)
     {
-        defender.HitAction(action);
+        attacker.DoAction(action);
+        defender.GetHit(action);
     }
 
     private void Update()

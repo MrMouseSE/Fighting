@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace Player
 {
@@ -9,7 +8,7 @@ namespace Player
         public PlayerContainer PlayerContainer;
 
         [Space]
-        public HitSystemController _HitSystemController;
+        public HitSystemController HitSystemController;
 
         public string WhoAmI;
 
@@ -26,64 +25,38 @@ namespace Player
 
         public void CheckPlayerAction(int actionIndex)
         {
-            switch (actionIndex)
-            {
-                case 1:
-                    _action = ActionContainer.ActionIndex.UpperRightHit;
-                    break;
-                case 2:
-                    _action = ActionContainer.ActionIndex.LowerRightHit;
-                    break;
-                case 3:
-                    _action = ActionContainer.ActionIndex.UpperLeftHit;
-                    break;
-                case 4:
-                    _action = ActionContainer.ActionIndex.LowerLeftHit;
-                    break;
-                case 5:
-                    _action = ActionContainer.ActionIndex.RightBlock;
-                    break;
-                case 6:
-                    _action = ActionContainer.ActionIndex.LeftBlock;
-                    break;
-                default:
-                    _action = ActionContainer.ActionIndex.Empty;
-                    break;
-            }
-
-            _HitSystemController.CheckAction(WhoAmI, _action);
+            _action = (ActionContainer.ActionIndex) actionIndex;
+            
+            HitSystemController.CheckAction(WhoAmI, _action);
         }
 
-        
-        
-        // KAKAYA TO HUITA
-        public void HitAction(ActionContainer action)
+        public void DoAction(ActionContainer action)
         {
-            if (_cooldown || action == null) return;
+            if (_cooldown) return;
+
+            _block = (int) action.ActionName > 4 ? action : null;
+
             _cooldown = true;
-            
             StartCoroutine(StartCooldown(action.Cooldown));
         }
 
-        public void BlockAction(ActionContainer action)
+        public void GetHit(ActionContainer action)
         {
-            if(action.ActionName.ToString().Contains("Block")) _block = action;
             if (_block != null)
             {
                 if (_block.ActionSide == action.ActionSide)
                 {
-                    PlayerContainer.HitPoints -= action.Damage / 10;   
+                    PlayerContainer.HitPoints -= action.Damage / 10;
+                    return;
                 }
             }
             PlayerContainer.HitPoints -= action.Damage;
-            
-            StartCoroutine(StartCooldown(action.Cooldown));
         }
-        //
         
         private IEnumerator StartCooldown(float time)
         {
             yield return new WaitForSeconds(time);
+            _action = ActionContainer.ActionIndex.Empty;
             _cooldown = false;
             _block = null;
         }
