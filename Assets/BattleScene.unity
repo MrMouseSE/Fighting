@@ -1079,7 +1079,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerContainer: {fileID: 737624140}
-  _HitSystemController: {fileID: 377155727}
+  HitSystemController: {fileID: 377155727}
   WhoAmI: enemy
 --- !u!114 &737624140
 MonoBehaviour:
@@ -1094,7 +1094,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HitPoints: 100
-  Actions: []
+  Actions:
+  - {fileID: 18851619}
+  - {fileID: 1351934098}
+  - {fileID: 1157682102}
+  - {fileID: 2146413317}
+  - {fileID: 1536485811}
+  - {fileID: 1481349541}
 --- !u!4 &737624141
 Transform:
   m_ObjectHideFlags: 0
@@ -2370,7 +2376,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerContainer: {fileID: 1823787023}
-  _HitSystemController: {fileID: 377155727}
+  HitSystemController: {fileID: 377155727}
   WhoAmI: player
 --- !u!114 &1823787023
 MonoBehaviour:
@@ -2385,7 +2391,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HitPoints: 100
-  Actions: []
+  Actions:
+  - {fileID: 2131145757}
+  - {fileID: 315129052}
+  - {fileID: 1237189280}
+  - {fileID: 2139135710}
+  - {fileID: 1465741682}
+  - {fileID: 522796492}
 --- !u!4 &1823787024
 Transform:
   m_ObjectHideFlags: 0
