@@ -10,8 +10,6 @@ namespace Player
         [Space]
         public HitSystemController HitSystemController;
 
-        public string WhoAmI;
-
         private ActionContainer _block;
         
         private ActionContainer.ActionIndex _action;
@@ -27,7 +25,7 @@ namespace Player
         {
             _action = (ActionContainer.ActionIndex) actionIndex;
             
-            HitSystemController.CheckAction(WhoAmI, _action);
+            HitSystemController.CheckAction(PlayerContainer.WhoAmI, _action);
         }
 
         public void DoAction(ActionContainer action)
