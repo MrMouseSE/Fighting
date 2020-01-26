@@ -10,17 +10,21 @@ namespace AI
         public PlayerController PlayerController;
         public AIVisualSignalSystem VisualSignalSystem;
 
-        private int _actionIndex;
+        private int _animatorActionIndex;
 
         private void Start()
         {
-            _actionIndex = Animator.StringToHash("ActionIndex");
+            _animatorActionIndex = Animator.StringToHash("ActionIndex");
             NewActionStart();
         }
 
         private void NewActionStart()
         {
-            if (PlayerController.Cooldown) StartCoroutine(DelayAfterAction(1f));
+            if (PlayerController.Cooldown)
+            {
+                StartCoroutine(DelayAfterAction(1f));
+                return;
+            }
             
             PrepareToAction();
         }
@@ -46,7 +50,7 @@ namespace AI
 
         private void DoAction(int actionIndex)
         {
-            Animator.SetInteger(_actionIndex, actionIndex);
+            Animator.SetInteger(_animatorActionIndex, actionIndex);
             PlayerController.CheckPlayerAction(actionIndex);
             StartCoroutine(DelayAfterAction(1f));
         }
