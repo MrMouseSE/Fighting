@@ -18,7 +18,7 @@ namespace Player
             UpperLeftHit = 3,
             LowerLeftHit = 4,
             RightBlock = 5,
-            LeftBlock = 6,
+            LeftBlock = 6
         }
         
         public ActionIndex ActionName;
