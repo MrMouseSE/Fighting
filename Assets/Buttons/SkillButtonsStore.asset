@@ -10,7 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5742e73b487cf2d4bb6ff6e0a513f973, type: 3}
-  m_Name: SkillButtonsStpre
+  m_Name: SkillButtonsStore
   m_EditorClassIdentifier: 
   SkillButtons:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: a7ca6c934bed59b41b5794906361d5b5, type: 2}
+  - {fileID: 11400000, guid: d417a7d312eb6704d98963e0e2b24889, type: 2}
+  - {fileID: 11400000, guid: 256e70b88979b5f4ba59c599e142be04, type: 2}

@@ -18,3 +18,4 @@ MonoBehaviour:
   Damage: 10
   Resist: 0
   Cooldown: 1
+  AwailableTime: 1
