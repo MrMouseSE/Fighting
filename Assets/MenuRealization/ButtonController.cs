@@ -6,21 +6,20 @@ namespace MenuRealization
 {
     public class ButtonController : MonoBehaviour
     {
+        public CanvasController Canvas;
         public ButtonContainer Container;
         public Button Button;
+        public ActionController ActionController;
         
         private bool _cooldown;
-
-        public delegate void ButtonPressedDelegate(ButtonContainer buttonContainer);
-        public static event ButtonPressedDelegate ButtonPressed;
-
+        
         public void OnButtonClick(bool hide)
         {
             ButtonDisable(Container.CooldownTime);
-            if (ButtonPressed != null) ButtonPressed(Container);
+            Canvas.GetNewButton(Container);
+            ActionController.ActionToCalculate(Container, "player");
             if (!hide) return;
             StartCoroutine(DisappearCounter(0.3f));
-            
         }
 
         public void ButtonAppear()

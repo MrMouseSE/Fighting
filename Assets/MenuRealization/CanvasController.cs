@@ -5,29 +5,13 @@ namespace MenuRealization
 {
     public class CanvasController : MonoBehaviour
     {
-        private static List<ButtonController> _buttons;
-
         public List<ButtonController> Buttons;
-        
 
         private void Awake()
         {
-            _buttons = Buttons;
-            Subscribe();
         }
 
-        private static void Subscribe()
-        {
-            ButtonController.ButtonPressed += GetNewButton;
-            ButtonController.ButtonPressed += ActionResult;
-        }
-
-        private static void ActionResult(ButtonContainer buttonContainer)
-        {
-            
-        }
-
-        private static void GetNewButton(ButtonContainer buttonContainer)
+        public void GetNewButton(ButtonContainer buttonContainer)
         {
             var buttonType = buttonContainer.ByttonType;
             switch (buttonType)
@@ -47,9 +31,9 @@ namespace MenuRealization
             }
         }
 
-        private static void DrawNextButton(ButtonType buttonType)
+        private void DrawNextButton(ButtonType buttonType)
         {
-            foreach (var button in _buttons)
+            foreach (var button in Buttons)
             {
                 if (button.Container.ByttonType == buttonType)
                 {

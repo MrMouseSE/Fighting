@@ -7,8 +7,8 @@ namespace MenuRealization
         public ButtonType ByttonType;
         public float CooldownTime;
         public float DisappearTime;
-        public ButtonState DisableState;
-        public ButtonState EnableState;
+        public float Damage;
+        public float Resist;
     }
 
     public enum ButtonType
@@ -20,10 +20,5 @@ namespace MenuRealization
         BasicBlock = 4,
         AdvancedBlock = 5,
         SuperBlock = 6
-    }
-
-    public class ButtonState
-    {
-        public Color BackColor;
     }
 }
